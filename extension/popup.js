@@ -1,8 +1,14 @@
 const output = document.getElementById("output");
 const pingBtn = document.getElementById("pingBtn");
 
-// We'll wire this to FastAPI in the next step.
-// For now, just prove JS runs.
 pingBtn.addEventListener("click", async () => {
-  output.textContent = "Popup JS is working ✅ (backend not connected yet)";
+  output.textContent = "Pinging backend...";
+
+  try {
+    const res = await fetch("http://127.0.0.1:8000/health");
+    const data = await res.json();
+    output.textContent = JSON.stringify(data, null, 2);
+  } catch (err) {
+    output.textContent = `Error: ${err}`;
+  }
 });

@@ -7,5 +7,6 @@
     "default_title": "Canvas Coding Assistant",
     "default_popup": "popup.html"
   },
-  "permissions": []
+  "permissions": [],
+  "host_permissions": ["http://127.0.0.1/*", "http://localhost/*"]
 }
