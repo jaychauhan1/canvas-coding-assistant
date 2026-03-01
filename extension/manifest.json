@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Canvas Coding Assistant",
+  "version": "0.1.0",
+  "description": "Suggestions while coding in Canvas using a GPU-hosted Qwen model.",
+  "action": {
+    "default_title": "Canvas Coding Assistant",
+    "default_popup": "popup.html"
+  },
+  "permissions": []
+}
