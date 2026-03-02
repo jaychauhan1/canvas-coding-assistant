@@ -1,61 +1,103 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Canvas Coding Assistant</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        width: 360px;
-        padding: 12px;
-      }
-      .container {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      h1 {
-        font-size: 18px;
-        margin: 0;
-      }
-      .muted {
-        margin: 0;
-        opacity: 0.75;
-        font-size: 12px;
-      }
-      button {
-        width: 100%;
-        padding: 10px;
-        margin-top: 4px;
-      }
-      #status {
-        font-size: 12px;
-        opacity: 0.85;
-      }
-      .output {
-        margin: 0;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        background: #fafafa;
-        font-size: 12px;
-        white-space: pre-wrap;
-        max-height: 260px;
-        overflow: auto;
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Canvas Coding Assistant</title>
 
-  <body>
-    <div class="container">
-      <h1>Canvas Coding Assistant</h1>
-      <p class="muted">Extension is installed and running.</p>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      width: 360px;
+      padding: 12px;
+      margin: 0;
+      box-sizing: border-box;
+    }
 
-      <button id="pingBtn">Ping backend</button>
-      <div id="status">Ready.</div>
-      <pre id="output" class="output">Click “Ping backend”.</pre>
-    </div>
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
-    <script src="popup.js"></script>
-  </body>
+    h1 {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .muted {
+      margin: 0;
+      opacity: 0.75;
+      font-size: 12px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    #pingBtn {
+      background-color: #e5e5e5;
+    }
+
+    #askBtn {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 12px;
+      font-family: inherit;
+      box-sizing: border-box;
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    #status {
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .output {
+      background: #f7f7f7;
+      padding: 8px;
+      border-radius: 8px;
+      font-size: 12px;
+      white-space: pre-wrap;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Canvas Coding Assistant</h1>
+    <p class="muted">Extension is installed and running.</p>
+
+    <button id="pingBtn">Ping backend</button>
+
+    <textarea
+      id="promptInput"
+      placeholder="Type your question..."
+    ></textarea>
+
+    <button id="askBtn">Ask</button>
+
+    <div id="status">Ready.</div>
+
+    <pre id="output" class="output">
+Click "Ping backend" or type a question and press Ask.
+    </pre>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
 </html>
