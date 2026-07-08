@@ -28,10 +28,10 @@ Built as part of my Research Assistant role at UH, the system is in active produ
 
 ```mermaid
 flowchart LR
-    Ext[Chrome Extension] -->|POST /suggest| API[FastAPI Backend]
-    API -->|chat completions| SGL[SGLang Server]
-    SGL --> GPU[Qwen2.5-Coder-7B GPU]
-    GPU --> SGL
+    Ext["Chrome Extension"] -->|"POST /suggest"| API["FastAPI Backend"]
+    API -->|"chat completions"| SGL["SGLang Server"]
+    SGL --> Model["Qwen2.5-Coder-7B"]
+    Model --> SGL
     SGL --> API
     API --> Ext
 ```
@@ -42,16 +42,16 @@ sequenceDiagram
     participant Extension
     participant FastAPI
     participant SGLang
-    participant GPU
+    participant Model as Qwen GPU
 
     Student->>Extension: Analyze code
     Extension->>FastAPI: POST /suggest
     FastAPI->>SGLang: Chat completion
-    SGLang->>GPU: Inference
-    GPU-->>SGLang: Generated text
+    SGLang->>Model: Inference
+    Model-->>SGLang: Generated text
     SGLang-->>FastAPI: JSON response
-    FastAPI-->>Extension: Suggestion + latency_ms
-    Extension-->>Student: Display suggestion
+    FastAPI-->>Extension: Suggestion
+    Extension-->>Student: Display result
 ```
 
 ## Tech Stack
