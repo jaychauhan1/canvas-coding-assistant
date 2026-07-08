@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 280" role="img" aria-label="Canvas Coding Assistant architecture">
+  <defs>
+    <style>
+      .bg { fill: #f7f3ed; }
+      .box { fill: #faf8f5; stroke: #8b7355; stroke-width: 1.5; rx: 8; }
+      .title { font: 600 14px 'Segoe UI', system-ui, sans-serif; fill: #2c2c2c; }
+      .label { font: 13px 'Segoe UI', system-ui, sans-serif; fill: #2c2c2c; }
+      .sub { font: 11px 'Segoe UI', system-ui, sans-serif; fill: #9a9289; }
+      .arrow { stroke: #8b7355; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#8b7355"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="920" height="280"/>
+  <text x="460" y="28" text-anchor="middle" class="title">Canvas Coding Assistant  Request Flow</text>
+
+  <rect class="box" x="24" y="70" width="150" height="72"/>
+  <text x="99" y="98" text-anchor="middle" class="label">Chrome Extension</text>
+  <text x="99" y="118" text-anchor="middle" class="sub">OneCompiler + Canvas</text>
+
+  <rect class="box" x="230" y="70" width="150" height="72"/>
+  <text x="305" y="98" text-anchor="middle" class="label">FastAPI Backend</text>
+  <text x="305" y="118" text-anchor="middle" class="sub">/suggest · /health</text>
+
+  <rect class="box" x="436" y="70" width="150" height="72"/>
+  <text x="511" y="98" text-anchor="middle" class="label">SGLang Server</text>
+  <text x="511" y="118" text-anchor="middle" class="sub">OpenAI-compatible API</text>
+
+  <rect class="box" x="642" y="70" width="254" height="72"/>
+  <text x="769" y="98" text-anchor="middle" class="label">Qwen2.5-Coder-7B-Instruct</text>
+  <text x="769" y="118" text-anchor="middle" class="sub">GPU inference</text>
+
+  <line class="arrow" x1="174" y1="106" x2="230" y2="106"/>
+  <line class="arrow" x1="380" y1="106" x2="436" y2="106"/>
+  <line class="arrow" x1="586" y1="106" x2="642" y2="106"/>
+
+  <rect class="box" x="230" y="190" width="460" height="56"/>
+  <text x="460" y="214" text-anchor="middle" class="label">Structured logging: prompt size, platform, latency_ms</text>
+  <text x="460" y="232" text-anchor="middle" class="sub">100+ active users · University of Houston production deployment</text>
+</svg>
